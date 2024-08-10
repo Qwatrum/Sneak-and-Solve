@@ -1,0 +1,108 @@
+[gd_scene load_steps=8 format=3 uid="uid://dqfn0qmwmtsxs"]
+
+[ext_resource type="FontFile" uid="uid://xdugluwcqco7" path="res://fonts/Pixelify_Sans/static/PixelifySans-Regular.ttf" id="1_6vohi"]
+[ext_resource type="Texture2D" uid="uid://tinacg7dq1j3" path="res://assets/hallway.png" id="1_gisqi"]
+[ext_resource type="Texture2D" uid="uid://bbe0ccu8riyqv" path="res://assets/title.png" id="2_35o3a"]
+[ext_resource type="Script" path="res://scenes/menu.gd" id="2_seppv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6cwll"]
+bg_color = Color(0.956814, 0.920819, 0.81422, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 0.665605, 0.136879, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hjk6s"]
+bg_color = Color(0.913725, 0.847059, 0.65098, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.933333, 0.607843, 0, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
+[sub_resource type="Theme" id="Theme_8rlba"]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+Button/font_sizes/font_size = 48
+Button/fonts/font = ExtResource("1_6vohi")
+Button/styles/hover = SubResource("StyleBoxFlat_6cwll")
+Button/styles/normal = SubResource("StyleBoxFlat_hjk6s")
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_8rlba")
+script = ExtResource("2_seppv")
+
+[node name="WallLeft" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -141.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_gisqi")
+
+[node name="WallRight" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 659.0
+offset_right = 518.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_gisqi")
+flip_h = true
+
+[node name="Title" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 21.0
+offset_right = 1309.0
+offset_bottom = 130.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_35o3a")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 32
+
+[node name="Play" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Play"
+
+[node name="Credits" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Credits"
+
+[connection signal="button_down" from="VBoxContainer/Play" to="." method="_on_play_button_down"]
+[connection signal="button_down" from="VBoxContainer/Credits" to="." method="_on_credits_button_down"]

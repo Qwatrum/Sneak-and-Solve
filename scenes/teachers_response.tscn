@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://n2lodrieenq5"]
+
+[ext_resource type="Script" path="res://scenes/teachers_response.gd" id="1_4pdje"]
+[ext_resource type="FontFile" uid="uid://xdugluwcqco7" path="res://fonts/Pixelify_Sans/static/PixelifySans-Regular.ttf" id="1_r0e66"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t5u6i"]
+bg_color = Color(0.913725, 0.847059, 0.65098, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.933333, 0.607843, 0, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
+[sub_resource type="Theme" id="Theme_grvj0"]
+Panel/styles/panel = SubResource("StyleBoxFlat_t5u6i")
+
+[sub_resource type="LabelSettings" id="LabelSettings_mvoap"]
+font = ExtResource("1_r0e66")
+font_size = 24
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yrm1k"]
+size = Vector2(799, 206)
+
+[node name="TeachersResponse" type="Panel"]
+offset_top = 395.0
+offset_right = 800.0
+offset_bottom = 599.0
+mouse_filter = 2
+theme = SubResource("Theme_grvj0")
+script = ExtResource("1_4pdje")
+
+[node name="Text" type="Label" parent="."]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 9.0
+offset_right = 792.0
+offset_bottom = 194.0
+text = "Here goes the teachers repsone
+ "
+label_settings = SubResource("LabelSettings_mvoap")
+autowrap_mode = 3
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(399.5, 102)
+shape = SubResource("RectangleShape2D_yrm1k")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

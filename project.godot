@@ -11,8 +11,15 @@ config_version=5
 [application]
 
 config/name="Sneak and Solve"
+run/main_scene="res://scenes/menu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://assets/icon.png"
+
+[display]
+
+window/size/viewport_width=800
+window/size/viewport_height=600
+window/size/resizable=false
 
 [rendering]
 
