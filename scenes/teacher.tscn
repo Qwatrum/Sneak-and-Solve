@@ -14,8 +14,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_abqbj"]
-radius = 11.0
-height = 88.0
+radius = 12.0
+height = 82.0
 
 [node name="Teacher" type="StaticBody2D"]
 
@@ -24,4 +24,5 @@ texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_wu1ph")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
 shape = SubResource("CapsuleShape2D_abqbj")

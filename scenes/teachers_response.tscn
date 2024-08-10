@@ -20,7 +20,7 @@ Panel/styles/panel = SubResource("StyleBoxFlat_t5u6i")
 
 [sub_resource type="LabelSettings" id="LabelSettings_mvoap"]
 font = ExtResource("1_r0e66")
-font_size = 24
+font_size = 28
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yrm1k"]
@@ -40,7 +40,7 @@ offset_left = 6.0
 offset_top = 9.0
 offset_right = 792.0
 offset_bottom = 194.0
-text = "Here goes the teachers repsone
+text = "Here goes the teachers response
  "
 label_settings = SubResource("LabelSettings_mvoap")
 autowrap_mode = 3

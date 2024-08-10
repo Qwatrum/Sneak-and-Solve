@@ -41,7 +41,7 @@ Button/styles/normal = SubResource("StyleBoxFlat_hjk6s")
 
 [sub_resource type="LabelSettings" id="LabelSettings_w37qw"]
 font = ExtResource("5_3o0et")
-font_size = 40
+font_size = 32
 font_color = Color(0, 0, 0, 1)
 
 [node name="Menu" type="Control"]
@@ -106,7 +106,10 @@ Art: Qwatrum
 Some Assets from Pixilart
 Music: -
 Font: Pixelify_Sans
-Title created with cooltext"
+Title created with cooltext
+Teacher is powered by GPT
+Please don't play the game a lot! :(
+I don't want to be broke..."
 label_settings = SubResource("LabelSettings_w37qw")
 horizontal_alignment = 1
 

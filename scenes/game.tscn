@@ -1,8 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://bp8nx04g8t2wr"]
+[gd_scene load_steps=7 format=3 uid="uid://bp8nx04g8t2wr"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_h2ayl"]
 [ext_resource type="Texture2D" uid="uid://tinacg7dq1j3" path="res://assets/hallway.png" id="1_ytvq1"]
 [ext_resource type="PackedScene" uid="uid://b0je1eu2otlxs" path="res://scenes/teacher.tscn" id="2_e02lg"]
+[ext_resource type="FontFile" uid="uid://b7u1foppwuqha" path="res://fonts/Pixelify_Sans/static/PixelifySans-Bold.ttf" id="4_trvkp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kvukx"]
+font = ExtResource("4_trvkp")
+font_size = 128
+font_color = Color(1.27546e-06, 0.471945, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2pv26"]
+font = ExtResource("4_trvkp")
+font_size = 128
+font_color = Color(0.50012, 0, 0.0222075, 1)
 
 [node name="Game" type="Control"]
 layout_mode = 3
@@ -11,6 +22,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_h2ayl")
 
 [node name="WallLeft" type="TextureRect" parent="."]
@@ -22,6 +34,7 @@ anchor_bottom = 1.0
 offset_right = -141.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("1_ytvq1")
 
 [node name="WallRight" type="TextureRect" parent="."]
@@ -34,9 +47,45 @@ offset_left = 659.0
 offset_right = 518.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("1_ytvq1")
 flip_h = true
 
 [node name="Teacher" parent="." instance=ExtResource("2_e02lg")]
+visible = false
 position = Vector2(358, 323)
 scale = Vector2(3.5, 3.5)
+
+[node name="Win" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -243.0
+offset_top = -77.0
+offset_right = 243.0
+offset_bottom = 77.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "You win!"
+label_settings = SubResource("LabelSettings_kvukx")
+
+[node name="Loose" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -307.5
+offset_top = -77.0
+offset_right = 307.5
+offset_bottom = 77.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "You loose!"
+label_settings = SubResource("LabelSettings_2pv26")
