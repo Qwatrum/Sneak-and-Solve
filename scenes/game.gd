@@ -1,7 +1,8 @@
 extends Control
 
-var api_key : String = "no-no-no Not for you"
-var url : String = "https://api.openai.com/v1/chat/completions"
+var api_key : String = "no-no- not for you"
+#var url : String = "https://api.openai.com/v1/chat/completions"
+var url : String = "https://jamsapi.hackclub.dev/openai/chat/completions"
 var temperature : float = 0.5
 var max_tokens : int = 1024
 var headers = ["Content-type: application/json", "Authorization: Bearer " + api_key]
@@ -105,7 +106,6 @@ func player_says(txt):
 	
 func display_teacher_response(txt):
 	
-	#var example_return = "false#Your safety and well-being are very important, but bringing a mop to the exam is not necessary. If you're feeling overwhelmed or need help, please speak to me or another trusted adult. We're here to support you, but the mop won't be allowed during the exam."
 	var answer_list = txt.split("#")
 	
 	var answer = answer_list

@@ -40,7 +40,7 @@ offset_left = 6.0
 offset_top = 9.0
 offset_right = 792.0
 offset_bottom = 194.0
-text = "Here goes the teachers response
+text = "I need to think about that...
  "
 label_settings = SubResource("LabelSettings_mvoap")
 autowrap_mode = 3
