@@ -44,7 +44,7 @@ font = ExtResource("5_3o0et")
 font_size = 32
 font_color = Color(0, 0, 0, 1)
 
-[node name="Menu" type="Control"]
+[node name="Credits" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -107,9 +107,7 @@ Some Assets from Pixilart
 Music: -
 Font: Pixelify_Sans
 Title created with cooltext
-Teacher is powered by GPT
-Please don't play the game a lot! :(
-I don't want to be broke..."
+Teacher is powered by GPT"
 label_settings = SubResource("LabelSettings_w37qw")
 horizontal_alignment = 1
 

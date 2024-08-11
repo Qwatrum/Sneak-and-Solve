@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dqfn0qmwmtsxs"]
+[gd_scene load_steps=10 format=3 uid="uid://dbaap64p4onut"]
 
-[ext_resource type="FontFile" uid="uid://xdugluwcqco7" path="res://fonts/Pixelify_Sans/static/PixelifySans-Regular.ttf" id="1_6vohi"]
-[ext_resource type="Texture2D" uid="uid://tinacg7dq1j3" path="res://assets/hallway.png" id="1_gisqi"]
-[ext_resource type="Texture2D" uid="uid://bbe0ccu8riyqv" path="res://assets/title.png" id="2_35o3a"]
-[ext_resource type="Script" path="res://scenes/menu.gd" id="2_seppv"]
+[ext_resource type="FontFile" uid="uid://xdugluwcqco7" path="res://fonts/Pixelify_Sans/static/PixelifySans-Regular.ttf" id="1_rvt5t"]
+[ext_resource type="Script" path="res://scenes/informations.gd" id="2_1q3ua"]
+[ext_resource type="Texture2D" uid="uid://tinacg7dq1j3" path="res://assets/hallway.png" id="3_j8nlx"]
+[ext_resource type="Texture2D" uid="uid://bbe0ccu8riyqv" path="res://assets/title.png" id="4_sd5vd"]
+[ext_resource type="FontFile" uid="uid://b5yfh7cadlua6" path="res://fonts/Pixelify_Sans/static/PixelifySans-Medium.ttf" id="5_t3dll"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6cwll"]
 bg_color = Color(0.956814, 0.920819, 0.81422, 1)
@@ -34,11 +35,16 @@ Button/colors/font_color = Color(0, 0, 0, 1)
 Button/colors/font_focus_color = Color(0, 0, 0, 1)
 Button/colors/font_hover_color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 Button/font_sizes/font_size = 48
-Button/fonts/font = ExtResource("1_6vohi")
+Button/fonts/font = ExtResource("1_rvt5t")
 Button/styles/hover = SubResource("StyleBoxFlat_6cwll")
 Button/styles/normal = SubResource("StyleBoxFlat_hjk6s")
 
-[node name="Menu" type="Control"]
+[sub_resource type="LabelSettings" id="LabelSettings_w37qw"]
+font = ExtResource("5_t3dll")
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[node name="Informations" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -46,7 +52,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_8rlba")
-script = ExtResource("2_seppv")
+script = ExtResource("2_1q3ua")
 
 [node name="WallLeft" type="TextureRect" parent="."]
 texture_filter = 1
@@ -57,7 +63,7 @@ anchor_bottom = 1.0
 offset_right = -141.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_gisqi")
+texture = ExtResource("3_j8nlx")
 
 [node name="WallRight" type="TextureRect" parent="."]
 texture_filter = 1
@@ -69,7 +75,7 @@ offset_left = 659.0
 offset_right = 518.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_gisqi")
+texture = ExtResource("3_j8nlx")
 flip_h = true
 
 [node name="Title" type="TextureRect" parent="."]
@@ -79,37 +85,38 @@ offset_top = 21.0
 offset_right = 1309.0
 offset_bottom = 130.0
 scale = Vector2(0.6, 0.6)
-texture = ExtResource("2_35o3a")
+texture = ExtResource("4_sd5vd")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Credits" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -64.0
+offset_top = -19.5
+offset_right = 64.0
+offset_bottom = 19.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 32
+text = "Informations:
+Teacher is powered by gpt-3.5-turbo
+There is a limit of free plays, 
+because the api is not free.
+If you have the password 
+you can reset it and play more.
+Reset the password by clicking the 
+left down corner of the door in game."
+label_settings = SubResource("LabelSettings_w37qw")
+horizontal_alignment = 1
 
-[node name="Play" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-text = "Play"
+[node name="Back" type="Button" parent="."]
+layout_mode = 0
+offset_left = 351.0
+offset_top = 505.0
+offset_right = 471.0
+offset_bottom = 572.0
+text = "Back"
 
-[node name="Credits" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 34
-text = "Credits"
-
-[node name="Informations" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 34
-text = "Informations"
-
-[connection signal="button_down" from="VBoxContainer/Play" to="." method="_on_play_button_down"]
-[connection signal="button_down" from="VBoxContainer/Credits" to="." method="_on_credits_button_down"]
-[connection signal="button_down" from="VBoxContainer/Informations" to="." method="_on_informations_button_down"]
+[connection signal="button_down" from="Back" to="." method="_on_back_button_down"]

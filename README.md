@@ -1,5 +1,7 @@
 # Sneak and Solve
 
+*Made for the Hackclub Arcade Jam*
+
 ## Game:
 - You are a student
 - You need to write an exam but you haven't learn!
