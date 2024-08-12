@@ -10,8 +10,8 @@
 
 
 ## Credits:
-- Code: @Qwatrum
-- Art: @Qwatrum & Assets from Pixilart
+- Code: Qwatrum
+- Art: Qwatrum & Assets from Pixilart
 - Music: -
 
 
