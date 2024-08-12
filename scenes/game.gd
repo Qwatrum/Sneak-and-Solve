@@ -1,8 +1,6 @@
 extends Control
 
 var api_key : String = "no not for you!"
-#var api_key : String = "no not for you"
-#var url : String = "https://api.openai.com/v1/chat/completions"
 var url : String = "https://jamsapi.hackclub.dev/openai/chat/completions"
 var temperature : float = 0.5
 var max_tokens : int = 1024
@@ -56,11 +54,10 @@ func _ready():
 	add_child(request)
 	request.connect("request_completed", _on_request_completed)
 
-	
-	
 	cheat_item = items.pick_random()
 	t_response = t_response_node.instantiate()
 	add_child(t_response)
+	
 	if times_played >= max_times_played:
 		t_response.set_text("Unfortunately, you've reached the free limit.")
 		start_dialogue = []
@@ -96,6 +93,7 @@ func _on_request_completed(result, response_code, headers, body):
 	display_teacher_response(message)
 	
 func next():
+	
 	if dialoguing:
 		if i == 1:
 			t_response.set_text(start_dialogue[i]+cheat_item)
@@ -125,6 +123,7 @@ func next():
 			$"Loose".show()
 		
 func player_says(txt):
+	
 	times_played+=1
 	data.change_times_played(times_played)
 	save_times_played()
@@ -135,7 +134,7 @@ func player_says(txt):
 	t_response = t_response_node.instantiate()
 	add_child(t_response)
 	
-	var prompt = "You are a teacher responsible for ensuring fairness during the upcoming exam. As part of your duties, you are checking the students' backpacks before the exam starts. You discover an item in Michael's backpack: "+cheat_item+". Michael must now convince you why he should be allowed to keep this item during the exam.\nIf Michael's explanation is exceptionally convincing and reasonable, respond with: true#<YOUR RESPONSE>\nIf his explanation is not convincing enough, respond with: false#<YOUR RESPONSE>\nDon't answer else! Sentimental reasons are not allowed as a justification.\nMichael: "+txt
+	var prompt = "You are a teacher responsible for ensuring fairness during the upcoming exam. As part of your duties, you are checking the students' backpacks before the exam starts. You discover an item in Michael's backpack: "+cheat_item+". Michael must now convince you why he should be allowed to keep this item during the exam.\nIf Michael's explanation is exceptionally convincing and reasonable, respond with: true#<YOUR RESPONSE>\nIf his explanation is not convincing enough, respond with: false#<YOUR RESPONSE>\nDon't answer else! Sentimental reasons are not allowed as a justification. Students don't need to bring extra items.\nMichael: "+txt
 	dialogue_request(prompt)
 	
 	
@@ -145,22 +144,27 @@ func display_teacher_response(txt):
 	var answer_list = txt.split("#")
 	
 	var answer = answer_list
-	
-	allowed = str(answer[0]).to_lower().begins_with("true")
-	if len(answer) == 1:
+	if str(answer[0]).to_lower().begins_with("true") == false and str(answer[0]).to_lower().begins_with("false") == false:
 		start_dialogue == ["Looks like there was an error. Please try again."]
 		dialoguing = true
 		end = true
 		i = 0
 	else:
-		t_response.set_text(answer[1])
-		if allowed:
-			start_dialogue = ["You are allowed to enter the room. Good luck!"]
+		allowed = str(answer[0]).to_lower().begins_with("true")
+		if len(answer) == 1:
+			start_dialogue == ["Looks like there was an error. Please try again."]
+			dialoguing = true
+			end = true
+			i = 0
 		else:
-			start_dialogue = ["You are not allowed to enter. I will contact your parents!"]
-		dialoguing = true
-		i = 0
-		end = true
+			t_response.set_text(answer[1])
+			if allowed:
+				start_dialogue = ["You are allowed to enter the room. Good luck!"]
+			else:
+				start_dialogue = ["You are not allowed to enter. I will contact your parents!"]
+			dialoguing = true
+			i = 0
+			end = true
 
 
 func _on_reset_field_input_event(viewport, event, shape_idx):
@@ -174,14 +178,17 @@ func _on_reset_field_input_event(viewport, event, shape_idx):
 
 
 func _on_reset_button_down():
+	
 	var password_text = $"PasswordField".text
 	$"Reset".hide()
 	if password_text == password:
+		
 		$"PasswordField".text = "CORRECT"
 		data.change_times_played(0)
 		save_times_played()
 		await get_tree().create_timer(1).timeout
 		get_tree().change_scene_to_file("res://scenes/menu.tscn")
+		
 	else:
 		$"PasswordField".text = "WRONG"
 		await get_tree().create_timer(1).timeout

@@ -18,7 +18,7 @@ font_size = 128
 font_color = Color(0.50012, 0, 0.0222075, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aogx2"]
-size = Vector2(28, 31)
+size = Vector2(24.5, 35.25)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5tywr"]
 bg_color = Color(0.913725, 0.847059, 0.65098, 1)
@@ -168,7 +168,7 @@ label_settings = SubResource("LabelSettings_2pv26")
 position = Vector2(45, 378)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ResetField"]
-position = Vector2(1, 5.5)
+position = Vector2(-1.25, 4.625)
 shape = SubResource("RectangleShape2D_aogx2")
 
 [node name="PasswordField" type="LineEdit" parent="."]
