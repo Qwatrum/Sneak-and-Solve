@@ -1,5 +1,4 @@
 # Sneak and Solve
-### [Play here on Itch.io](https://qwatrum.itch.io/sneak-and-solve?secret=Ir0OZOuOgckGWRLBksnDFOt1qS0 "Play here on Itch.io")
 
 
 *Made for the Hackclub Arcade Jam*
